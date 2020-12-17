@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">NapoleonIT</string>
+
+    <!-- CheckoutFragment -->
+    <string name="checkout_header">Оплата заказа</string>
+    <string name="name_hint">Имя</string>
+    <string name="surname_hint">Фамилия</string>
+    <string name="phone_hint">Телефон</string>
+    <string name="phone_example">Пример, 89999999999 или +79999999999</string>
+    <string name="pay_chose">Способ оплаты</string>
+    <string name="cash">Наличными</string>
+    <string name="card">Картой при получении</string>
+    <string name="pay">Оплатить</string>
+</resources>
