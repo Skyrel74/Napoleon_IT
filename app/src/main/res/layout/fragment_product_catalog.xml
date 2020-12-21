@@ -9,11 +9,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical">
 
-        <Button
-            android:id="@+id/detailedBtn"
-            android:layout_width="wrap_content"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/productsRv"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Детальная информация о продукте"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/cartBtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -24,9 +26,8 @@
             android:layout_height="wrap_content"
             android:text="Корзина"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/detailedBtn"
-            app:layout_constraintStart_toStartOf="@+id/detailedBtn"
-            app:layout_constraintTop_toBottomOf="@+id/detailedBtn" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

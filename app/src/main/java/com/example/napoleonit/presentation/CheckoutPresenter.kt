@@ -1,6 +1,6 @@
 package com.example.napoleonit.presentation
 
-import com.example.napoleonit.Order
+import com.example.napoleonit.domain.Order
 import com.example.napoleonit.ui.CheckoutView
 import com.example.napoleonit.ui.Type
 import moxy.MvpPresenter
@@ -27,7 +27,12 @@ class CheckoutPresenter : MvpPresenter<CheckoutView>() {
     }
 
     private fun makeOrder(name: String, surname: String, phone: String, selectedType: Type) {
-        val newOrder = Order(name, surname, phone, selectedType)
+        val newOrder = Order(
+            name,
+            surname,
+            phone,
+            selectedType
+        )
     }
 
     private fun isNameCorrect(name: String): Boolean = name.length in 2..15

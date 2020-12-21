@@ -11,4 +11,6 @@
     <string name="cash">Наличными</string>
     <string name="card">Картой при получении</string>
     <string name="pay">Оплатить</string>
+    <string name="productImg">Изображение товара</string>
+    <string name="productNaming">Название товара</string>
 </resources>

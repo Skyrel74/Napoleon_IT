@@ -3,8 +3,8 @@ package com.example.napoleonit.ui
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.example.napoleonit.Product
 import com.example.napoleonit.R
+import com.example.napoleonit.domain.Product
 import kotlinx.android.synthetic.main.fragment_product_details.*
 
 class DetailsFragment : Fragment(R.layout.fragment_product_details) {

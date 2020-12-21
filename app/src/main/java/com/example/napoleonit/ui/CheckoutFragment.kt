@@ -7,7 +7,9 @@ import com.example.napoleonit.R
 import com.example.napoleonit.presentation.CheckoutPresenter
 import kotlinx.android.synthetic.main.fragment_checkout.*
 import moxy.MvpAppCompatFragment
+import moxy.MvpView
 import moxy.ktx.moxyPresenter
+import moxy.viewstate.strategy.alias.Skip
 
 enum class Type { CARD, CASH }
 
@@ -56,4 +58,19 @@ class CheckoutFragment : MvpAppCompatFragment(R.layout.fragment_checkout), Check
 
     private fun showErrorToast(errMsg: String) =
         Toast.makeText(requireContext(), "Ошибка: $errMsg", Toast.LENGTH_LONG).show()
+}
+
+interface CheckoutView : MvpView {
+
+    @Skip
+    fun showNameError()
+
+    @Skip
+    fun showSurnameError()
+
+    @Skip
+    fun showPhoneError()
+
+    @Skip
+    fun showSuccessfulOrder()
 }

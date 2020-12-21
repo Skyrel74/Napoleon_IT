@@ -2,7 +2,7 @@ package com.example.napoleonit
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.napoleonit.ui.CheckoutFragment
+import com.example.napoleonit.ui.CatalogFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
             val fragmentManager = supportFragmentManager
 
             fragmentManager.beginTransaction()
-                .add(R.id.container, CheckoutFragment())
+                .add(R.id.container, CatalogFragment())
                 .commit()
         }
     }
