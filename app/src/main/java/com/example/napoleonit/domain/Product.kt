@@ -2,8 +2,10 @@ package com.example.napoleonit.domain
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
+import kotlinx.serialization.Serializable
 
 @Parcelize
+@Serializable
 data class Product(
     val name: String,
     val price: Double,

@@ -1,8 +1,10 @@
 package com.example.napoleonit.presentation
 
 import com.example.napoleonit.domain.Product
-import com.example.napoleonit.ui.CatalogView
 import moxy.MvpPresenter
+import moxy.MvpView
+import moxy.viewstate.strategy.alias.AddToEndSingle
+import moxy.viewstate.strategy.alias.OneExecution
 
 class CatalogPresenter : MvpPresenter<CatalogView>() {
 
@@ -38,4 +40,16 @@ class CatalogPresenter : MvpPresenter<CatalogView>() {
 
     fun onProductClick(product: Product) = viewState.showProductDetailed(product)
 
+}
+
+interface CatalogView : MvpView {
+
+    @AddToEndSingle
+    fun setProducts(products: List<Product>)
+
+    @OneExecution
+    fun showProductDetailed(product: Product)
+
+    @OneExecution
+    fun showCart()
 }

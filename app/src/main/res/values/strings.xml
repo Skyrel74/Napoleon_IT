@@ -13,4 +13,13 @@
     <string name="pay">Оплатить</string>
     <string name="productImg">Изображение товара</string>
     <string name="productNaming">Название товара</string>
+
+
+    <!-- CartFragment -->
+    <string name="product_title">Наименование товара</string>
+    <string name="price">Цена товара</string>
+    <string name="discount">Скидка</string>
+    <string name="price_with_discount">Цена со скидкой</string>
+    <string name="deleteProduct">Удалить продукт из корзины</string>
+
 </resources>
