@@ -19,7 +19,7 @@
             android:layout_height="100dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="6dp"
-            android:contentDescription="@string/productImg"
+            android:contentDescription="@string/product_img"
             app:srcCompat="@drawable/ic_launcher_background" />
 
         <TextView
@@ -30,7 +30,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
             android:gravity="center"
-            android:text="@string/productNaming"
+            android:text="@string/product_naming"
             android:textColor="@android:color/black"
             android:textStyle="bold" />
 

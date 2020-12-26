@@ -16,10 +16,11 @@ class CartPresenter(private val cartDao: CartDao) : MvpPresenter<CartView>() {
         viewState.setCart(cart)
     }
 
-//    fun onDeleteClick(product: Product) {
-//        cart = cart.filter { it != product }
-//        viewState.setCart(cart)
-//    }
+    fun onDeleteClick(product: Product) {
+        cart = cart.filter { it != product }
+        cartDao.deleteFromCart(product)
+        viewState.setCart(cart)
+    }
 }
 
 interface CartView : MvpView {

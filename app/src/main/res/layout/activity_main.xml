@@ -1,6 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/container"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_500"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/catalogBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:baselineAligned="false"
+                app:srcCompat="@drawable/ic_catalog_24"
+                android:contentDescription="@string/catalog_btn_description"/>
+
+            <ImageView
+                android:id="@+id/cartBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:baselineAligned="false"
+                app:srcCompat="@drawable/ic_cart_24"
+                android:contentDescription="@string/cart_btn_description"/>
+
+            <ImageView
+                android:id="@+id/checkoutBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:baselineAligned="false"
+                app:srcCompat="@drawable/ic_checkout_24"
+                android:contentDescription="@string/checkout_btn_description"/>
+        </TableRow>
+    </TableLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

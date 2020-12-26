@@ -1,61 +1,71 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tvCartItemTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:maxEms="5"
-        android:singleLine="false"
-        android:text="@string/product_title"
-        android:textColor="@android:color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tvCartItemPrice"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <TableLayout
+        android:id="@+id/table_heading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/tvCartItemPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:text="@string/price"
-        android:textColor="@android:color/black"
-        app:layout_constraintEnd_toStartOf="@+id/tvCartItemDiscount"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tvCartItemTitle"
-        app:layout_constraintTop_toTopOf="@+id/tvCartItemTitle" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tvCartItemDiscount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:text="@string/discount"
-        android:textColor="@android:color/black"
-        app:layout_constraintEnd_toStartOf="@+id/tvCartItemDiscountPrice"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tvCartItemPrice"
-        app:layout_constraintTop_toTopOf="@+id/tvCartItemPrice" />
+            <TextView
+                android:id="@+id/tvCartItemTitle"
+                style="@style/table_row_item"
+                android:layout_width="0dp"
+                android:layout_column="0"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:textAlignment="center" />
 
-    <TextView
-        android:id="@+id/tvCartItemDiscountPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:text="@string/price_with_discount"
-        android:textColor="@android:color/black"
-        app:layout_constraintEnd_toStartOf="@+id/parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tvCartItemDiscount"
-        app:layout_constraintTop_toTopOf="@+id/tvCartItemDiscount" />
+            <TextView
+                android:id="@+id/tvCartItemPrice"
+                style="@style/table_row_item"
+                android:layout_width="0dp"
+                android:layout_column="1"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:textAlignment="center" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/tvCartItemDiscount"
+                style="@style/table_row_item"
+                android:layout_width="0dp"
+                android:layout_column="2"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:baselineAligned="false"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tvCartItemDiscountPrice"
+                style="@style/table_row_item"
+                android:layout_width="0dp"
+                android:layout_column="2"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:baselineAligned="false"
+                android:textAlignment="center" />
+
+            <ImageView
+                android:id="@+id/deleteIv"
+                android:src="@drawable/ic_cancel_24"
+                style="@style/table_row_item"
+                android:layout_width="0dp"
+                android:layout_column="2"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:baselineAligned="false"
+                android:textAlignment="center"
+                android:contentDescription="@string/cart_delete_content_description"/>
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

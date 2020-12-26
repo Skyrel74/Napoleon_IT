@@ -49,7 +49,4 @@ interface CatalogView : MvpView {
 
     @OneExecution
     fun showProductDetailed(product: Product)
-
-    @OneExecution
-    fun showCart()
 }

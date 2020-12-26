@@ -11,7 +11,9 @@ import com.example.napoleonit.domain.Product
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.cart_item.*
 
-class CartAdapter: ListAdapter<Product, CartAdapter.ViewHolder>(object : DiffUtil.ItemCallback<Product>() {
+class CartAdapter(
+    private val onDeleteClick: (Product) -> Unit
+) : ListAdapter<Product, CartAdapter.ViewHolder>(object : DiffUtil.ItemCallback<Product>() {
     override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
         return oldItem.name == newItem.name
     }
@@ -36,6 +38,7 @@ class CartAdapter: ListAdapter<Product, CartAdapter.ViewHolder>(object : DiffUti
         holder.tvCartItemPrice.text = product.price.toString()
         holder.tvCartItemDiscount.text = product.discount.toString()
         holder.tvCartItemDiscountPrice.text = product.calcDiscountPrice().toString()
+        holder.deleteIv.setOnClickListener { onDeleteClick(product) }
     }
 }
 
