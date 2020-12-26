@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
     id 'org.jetbrains.kotlin.plugin.serialization' version "$kotlin_version"
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -95,4 +96,8 @@ dependencies {
 
     // Serialization
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1"
+
+    // Hilt Dagger
+    implementation "com.google.dagger:hilt-android:$hiltVersion"
+    kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
 }

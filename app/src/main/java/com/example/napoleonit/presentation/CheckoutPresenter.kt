@@ -1,6 +1,6 @@
 package com.example.napoleonit.presentation
 
-import com.example.napoleonit.data.entity.Order
+import com.example.napoleonit.domain.Order
 import com.example.napoleonit.ui.CheckoutView
 import com.example.napoleonit.ui.Type
 import moxy.MvpPresenter

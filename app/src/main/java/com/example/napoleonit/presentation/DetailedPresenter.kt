@@ -1,10 +1,17 @@
 package com.example.napoleonit.presentation
 
 import com.example.napoleonit.data.CartDao
-import com.example.napoleonit.data.entity.Product
+import com.example.napoleonit.domain.Product
 import moxy.MvpPresenter
 import moxy.MvpView
 import moxy.viewstate.strategy.alias.AddToEndSingle
+import javax.inject.Inject
+
+class DetailedPresenterFactory @Inject constructor(
+    private val cartDao: CartDao
+) {
+    fun create(product: Product) = DetailedPresenter(product, cartDao)
+}
 
 class DetailedPresenter(
     private val product: Product,

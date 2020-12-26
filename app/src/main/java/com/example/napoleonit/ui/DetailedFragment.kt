@@ -1,26 +1,26 @@
 package com.example.napoleonit.ui
 
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import com.example.napoleonit.R
-import com.example.napoleonit.data.CartDaoImpl
-import com.example.napoleonit.data.entity.Product
+import com.example.napoleonit.domain.Product
 import com.example.napoleonit.presentation.DetailedPresenter
+import com.example.napoleonit.presentation.DetailedPresenterFactory
 import com.example.napoleonit.presentation.DetailedView
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_detailed.*
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class DetailedFragment : MvpAppCompatFragment(R.layout.fragment_detailed), DetailedView {
 
+    @Inject
+    lateinit var detailedPresenterFactory: DetailedPresenterFactory
+
     private val presenter: DetailedPresenter by moxyPresenter {
-        DetailedPresenter(
-            arguments?.getParcelable(DETAILED_TAG)!!,
-            CartDaoImpl(
-                requireContext().getSharedPreferences("DATA", Context.MODE_PRIVATE)
-            )
-        )
+        detailedPresenterFactory.create(arguments?.getParcelable(DETAILED_TAG)!!)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -37,9 +37,9 @@ class DetailedFragment : MvpAppCompatFragment(R.layout.fragment_detailed), Detai
 
     override fun setIsInCart(inCart: Boolean) {
         addToCartBtn.text = if (inCart)
-            R.string.delete_from_cart.toString()
+            getString(R.string.delete_from_cart)
         else
-            R.string.add_to_cart.toString()
+            getString(R.string.add_to_cart)
     }
 
     companion object {

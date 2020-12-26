@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.napoleonit.R
-import com.example.napoleonit.data.entity.Product
+import com.example.napoleonit.domain.Product
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.cart_item.*
 

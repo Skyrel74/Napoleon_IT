@@ -1,6 +1,6 @@
 package com.example.napoleonit.data
 
-import com.example.napoleonit.data.entity.Product
+import com.example.napoleonit.domain.Product
 
 interface CartDao {
 

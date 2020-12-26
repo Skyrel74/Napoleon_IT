@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.napoleonit.R
-import com.example.napoleonit.data.entity.Product
+import com.example.napoleonit.domain.Product
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.catalog_item.*
 

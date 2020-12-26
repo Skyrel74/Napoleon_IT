@@ -5,20 +5,22 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.napoleonit.R
-import com.example.napoleonit.data.entity.Product
-import com.example.napoleonit.di.mainApi
-import com.example.napoleonit.domain.GetAllProductsUseCase
+import com.example.napoleonit.domain.Product
 import com.example.napoleonit.presentation.CatalogPresenter
 import com.example.napoleonit.presentation.CatalogView
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_catalog.*
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class CatalogFragment : MvpAppCompatFragment(R.layout.fragment_catalog), CatalogView {
 
-    private val presenter: CatalogPresenter by moxyPresenter {
-        CatalogPresenter(GetAllProductsUseCase(mainApi))
-    }
+    @Inject
+    lateinit var catalogPresenter: CatalogPresenter
+
+    private val presenter: CatalogPresenter by moxyPresenter { catalogPresenter }
     private var catalogAdapter: CatalogAdapter? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -4,11 +4,13 @@ import android.os.Bundle
 import com.example.napoleonit.ui.CartFragment
 import com.example.napoleonit.ui.CatalogFragment
 import com.example.napoleonit.ui.CheckoutFragment
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import moxy.MvpAppCompatActivity
 import moxy.MvpView
 import moxy.viewstate.strategy.alias.AddToEndSingle
 
+@AndroidEntryPoint
 class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun onCreate(savedInstanceState: Bundle?) {

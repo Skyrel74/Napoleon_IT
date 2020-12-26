@@ -1,12 +1,15 @@
 package com.example.napoleonit.presentation
 
 import com.example.napoleonit.data.CartDao
-import com.example.napoleonit.data.entity.Product
+import com.example.napoleonit.domain.Product
 import moxy.MvpPresenter
 import moxy.MvpView
 import moxy.viewstate.strategy.alias.AddToEndSingle
+import javax.inject.Inject
 
-class CartPresenter(private val cartDao: CartDao) : MvpPresenter<CartView>() {
+
+class CartPresenter @Inject constructor(private val cartDao: CartDao)
+    : MvpPresenter<CartView>() {
 
     private var cart: List<Product> = emptyList()
 

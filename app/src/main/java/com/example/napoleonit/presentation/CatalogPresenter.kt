@@ -1,29 +1,30 @@
 package com.example.napoleonit.presentation
 
-import com.example.napoleonit.data.entity.Product
 import com.example.napoleonit.domain.GetAllProductsUseCase
-import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.launch
+import com.example.napoleonit.domain.Product
+import com.example.napoleonit.extentions.launchWithErrorHandler
 import moxy.MvpPresenter
 import moxy.MvpView
 import moxy.presenterScope
 import moxy.viewstate.strategy.alias.AddToEndSingle
 import moxy.viewstate.strategy.alias.OneExecution
+import javax.inject.Inject
 
-class CatalogPresenter(
+class CatalogPresenter @Inject constructor(
     private val getAllProductsUseCase: GetAllProductsUseCase
 ) : MvpPresenter<CatalogView>() {
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
         viewState.showLoading(true)
-        presenterScope.launch(CoroutineExceptionHandler { context, throwable ->
-            viewState.showLoading(false)
-        }) {
-            val products = getAllProductsUseCase()
-            viewState.setProducts(products)
-            viewState.showLoading(false)
-        }
+        presenterScope.launchWithErrorHandler(
+            block = {
+                val products = getAllProductsUseCase()
+                viewState.setProducts(products)
+                viewState.showLoading(false)
+            }, onError = {
+                viewState.showLoading(false)
+            })
     }
 
     fun onProductClick(product: Product) = viewState.showProductDetailed(product)

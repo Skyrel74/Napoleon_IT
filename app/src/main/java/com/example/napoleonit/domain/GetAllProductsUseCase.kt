@@ -1,11 +1,13 @@
 package com.example.napoleonit.domain
 
-import com.example.napoleonit.data.entity.Product
 import com.example.napoleonit.di.MainApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class GetAllProductsUseCase(private val mainApi: MainApi) {
+class GetAllProductsUseCase @Inject constructor(
+    private val mainApi: MainApi
+) {
 
     suspend operator fun invoke(): List<Product> = withContext(Dispatchers.IO) {
         mainApi.getAllProducts().run {
