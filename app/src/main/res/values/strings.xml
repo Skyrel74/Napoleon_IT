@@ -6,6 +6,10 @@
     <string name="cart_btn_description">Кнопка перехода на корзины</string>
     <string name="checkout_btn_description">Кнопка перехода на оформление заказа</string>
 
+    <!-- DetailedFragment -->
+    <string name="add_to_cart">Добавить в корзину</string>
+    <string name="delete_from_cart">Убрать из корзины</string>
+
     <!-- CartFragment -->
     <string name="product_title">Наименование товара</string>
     <string name="price">Цена товара</string>

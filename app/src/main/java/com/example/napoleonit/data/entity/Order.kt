@@ -1,4 +1,4 @@
-package com.example.napoleonit.domain
+package com.example.napoleonit.data.entity
 
 import android.os.Parcelable
 import com.example.napoleonit.ui.Type

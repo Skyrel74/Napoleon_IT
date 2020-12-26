@@ -1,7 +1,7 @@
 package com.example.napoleonit.data
 
 import android.content.SharedPreferences
-import com.example.napoleonit.domain.Product
+import com.example.napoleonit.data.entity.Product
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json

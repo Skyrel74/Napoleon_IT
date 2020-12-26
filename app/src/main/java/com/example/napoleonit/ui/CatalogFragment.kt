@@ -2,9 +2,12 @@ package com.example.napoleonit.ui
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.napoleonit.R
-import com.example.napoleonit.domain.Product
+import com.example.napoleonit.data.entity.Product
+import com.example.napoleonit.di.mainApi
+import com.example.napoleonit.domain.GetAllProductsUseCase
 import com.example.napoleonit.presentation.CatalogPresenter
 import com.example.napoleonit.presentation.CatalogView
 import kotlinx.android.synthetic.main.fragment_catalog.*
@@ -13,7 +16,9 @@ import moxy.ktx.moxyPresenter
 
 class CatalogFragment : MvpAppCompatFragment(R.layout.fragment_catalog), CatalogView {
 
-    private val presenter: CatalogPresenter by moxyPresenter { CatalogPresenter() }
+    private val presenter: CatalogPresenter by moxyPresenter {
+        CatalogPresenter(GetAllProductsUseCase(mainApi))
+    }
     private var catalogAdapter: CatalogAdapter? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -38,6 +43,10 @@ class CatalogFragment : MvpAppCompatFragment(R.layout.fragment_catalog), Catalog
             .replace(R.id.container, DetailedFragment.newInstance(product))
             .addToBackStack("Catalog")
             .commit()
+    }
+
+    override fun showLoading(isShow: Boolean) {
+        loadPb.isVisible = isShow
     }
 
     override fun onDestroyView() {

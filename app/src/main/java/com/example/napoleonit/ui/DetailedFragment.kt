@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.example.napoleonit.R
 import com.example.napoleonit.data.CartDaoImpl
-import com.example.napoleonit.domain.Product
+import com.example.napoleonit.data.entity.Product
 import com.example.napoleonit.presentation.DetailedPresenter
 import com.example.napoleonit.presentation.DetailedView
 import kotlinx.android.synthetic.main.fragment_detailed.*
@@ -36,11 +36,10 @@ class DetailedFragment : MvpAppCompatFragment(R.layout.fragment_detailed), Detai
     }
 
     override fun setIsInCart(inCart: Boolean) {
-        if (inCart) {
-            addToCartBtn.text = "Убрать из корзины"
-        } else {
-            addToCartBtn.text = "Добавить в корзину"
-        }
+        addToCartBtn.text = if (inCart)
+            R.string.delete_from_cart.toString()
+        else
+            R.string.add_to_cart.toString()
     }
 
     companion object {

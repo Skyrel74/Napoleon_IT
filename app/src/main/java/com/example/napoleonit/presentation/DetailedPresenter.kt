@@ -1,7 +1,7 @@
 package com.example.napoleonit.presentation
 
 import com.example.napoleonit.data.CartDao
-import com.example.napoleonit.domain.Product
+import com.example.napoleonit.data.entity.Product
 import moxy.MvpPresenter
 import moxy.MvpView
 import moxy.viewstate.strategy.alias.AddToEndSingle

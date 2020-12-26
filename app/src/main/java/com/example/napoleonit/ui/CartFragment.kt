@@ -6,7 +6,7 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.napoleonit.R
 import com.example.napoleonit.data.CartDaoImpl
-import com.example.napoleonit.domain.Product
+import com.example.napoleonit.data.entity.Product
 import com.example.napoleonit.presentation.CartPresenter
 import com.example.napoleonit.presentation.CartView
 import kotlinx.android.synthetic.main.fragment_cart.*
