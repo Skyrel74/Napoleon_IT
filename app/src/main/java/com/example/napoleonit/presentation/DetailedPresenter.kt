@@ -2,16 +2,9 @@ package com.example.napoleonit.presentation
 
 import com.example.napoleonit.data.CartDao
 import com.example.napoleonit.domain.Product
+import com.example.napoleonit.ui.DetailedView
 import moxy.MvpPresenter
-import moxy.MvpView
-import moxy.viewstate.strategy.alias.AddToEndSingle
 import javax.inject.Inject
-
-class DetailedPresenterFactory @Inject constructor(
-    private val cartDao: CartDao
-) {
-    fun create(product: Product) = DetailedPresenter(product, cartDao)
-}
 
 class DetailedPresenter(
     private val product: Product,
@@ -37,11 +30,8 @@ class DetailedPresenter(
     }
 }
 
-interface DetailedView : MvpView {
-
-    @AddToEndSingle
-    fun setProduct(product: Product)
-
-    @AddToEndSingle
-    fun setIsInCart(inCart: Boolean)
+class DetailedPresenterFactory @Inject constructor(
+    private val cartDao: CartDao
+) {
+    fun create(product: Product) = DetailedPresenter(product, cartDao)
 }

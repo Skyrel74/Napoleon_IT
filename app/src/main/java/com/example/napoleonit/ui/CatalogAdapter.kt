@@ -16,15 +16,16 @@ import kotlinx.android.synthetic.main.catalog_item.*
 
 class CatalogAdapter(
     private val onProductClick: (Product) -> Unit
-) : ListAdapter<Product, CatalogAdapter.ViewHolder>(object : DiffUtil.ItemCallback<Product>() {
-    override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
-        return oldItem.name == newItem.name
-    }
+) : ListAdapter<Product, CatalogAdapter.ViewHolder>(
+    object : DiffUtil.ItemCallback<Product>() {
+        override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
+            return oldItem.name == newItem.name
+        }
 
-    override fun areContentsTheSame(oldItem: Product, newItem: Product): Boolean {
-        return oldItem == newItem
-    }
-}) {
+        override fun areContentsTheSame(oldItem: Product, newItem: Product): Boolean {
+            return oldItem == newItem
+        }
+    }) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(

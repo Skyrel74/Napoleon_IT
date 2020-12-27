@@ -1,4 +1,5 @@
 <resources>
+    <!-- Global values -->
     <string name="app_name">NapoleonIT</string>
 
     <!-- MainActivity -->
@@ -6,9 +7,16 @@
     <string name="cart_btn_description">Кнопка перехода на корзины</string>
     <string name="checkout_btn_description">Кнопка перехода на оформление заказа</string>
 
+    <!-- CatalogFragment -->
+    <string name="product_img">Изображение товара</string>
+    <string name="product_naming">Название товара</string>
+
     <!-- DetailedFragment -->
     <string name="add_to_cart">Добавить в корзину</string>
     <string name="delete_from_cart">Убрать из корзины</string>
+    <string name="detailed_img_description">Фото детальной информации о продуктке</string>
+    <string name="detailed_name_description">Название продукта</string>
+    <string name="detailed_description_description">Описание товара</string>
 
     <!-- CartFragment -->
     <string name="product_title">Наименование товара</string>
@@ -16,6 +24,7 @@
     <string name="discount">Скидка</string>
     <string name="price_with_discount">Цена со скидкой</string>
     <string name="delete_product">Удалить продукт из корзины</string>
+    <string name="cart_delete_content_description">Кнопка удаление товара из корзины</string>
 
     <!-- CheckoutFragment -->
     <string name="checkout_header">Оплата заказа</string>
@@ -27,7 +36,5 @@
     <string name="cash">Наличными</string>
     <string name="card">Картой при получении</string>
     <string name="pay">Оплатить</string>
-    <string name="product_img">Изображение товара</string>
-    <string name="product_naming">Название товара</string>
-    <string name="cart_delete_content_description">Кнопка удаление товара из корзины</string>
+
 </resources>

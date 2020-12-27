@@ -33,7 +33,5 @@
             android:text="@string/product_naming"
             android:textColor="@android:color/black"
             android:textStyle="bold" />
-
     </RelativeLayout>
-
 </androidx.cardview.widget.CardView>

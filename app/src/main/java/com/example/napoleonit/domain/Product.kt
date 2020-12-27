@@ -13,7 +13,11 @@ data class Product(
     val img: String = "",
     val description: String = "") : Parcelable {
 
-    fun calcDiscountPrice(): Double {
-        return price * (1 - (discount / 100.0))
+    fun calcDiscountPrice(): String {
+        val result = price * (1 - (discount / 100.0))
+        return if (result - result.toInt() == 0.0)
+            "${result.toInt()}"
+        else
+            "${Math.round(result * 100) / 100}"
     }
 }

@@ -1,11 +1,15 @@
 package com.example.napoleonit.presentation
 
+import com.example.napoleonit.data.CartDao
 import com.example.napoleonit.domain.Order
 import com.example.napoleonit.ui.CheckoutView
 import com.example.napoleonit.ui.Type
 import moxy.MvpPresenter
+import javax.inject.Inject
 
-class CheckoutPresenter : MvpPresenter<CheckoutView>() {
+class CheckoutPresenter @Inject constructor(
+    private val cartDao: CartDao
+) : MvpPresenter<CheckoutView>() {
 
     private var selectedType: Type = Type.CASH
 
@@ -22,7 +26,6 @@ class CheckoutPresenter : MvpPresenter<CheckoutView>() {
                 makeOrder(name, surname, phone, selectedType)
                 viewState.showSuccessfulOrder()
             }
-
         }
     }
 
@@ -31,8 +34,11 @@ class CheckoutPresenter : MvpPresenter<CheckoutView>() {
             name,
             surname,
             phone,
-            selectedType
+            selectedType,
+            cartDao.getAllFromCart()
         )
+        // Сделать PUT запрос на Firebase
+        cartDao.clearCart()
     }
 
     private fun isNameCorrect(name: String): Boolean = name.length in 2..15

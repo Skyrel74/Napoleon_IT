@@ -1,6 +1,7 @@
 package com.example.napoleonit
 
 import android.os.Bundle
+import android.view.View
 import com.example.napoleonit.ui.CartFragment
 import com.example.napoleonit.ui.CatalogFragment
 import com.example.napoleonit.ui.CheckoutFragment
@@ -46,6 +47,14 @@ class MainActivity : MvpAppCompatActivity(), MainView {
                     .replace(R.id.container, CheckoutFragment())
                     .commit()
         }
+    }
+
+    fun hideTable() {
+        navigation.visibility = View.GONE
+    }
+
+    fun showTable() {
+        navigation.visibility = View.VISIBLE
     }
 }
 

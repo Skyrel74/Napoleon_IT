@@ -34,9 +34,7 @@ class CartDaoImpl(
         cart = emptyList()
     }
 
-    override fun isInCart(product: Product): Boolean {
-        return cart.contains(product)
-    }
+    override fun isInCart(product: Product): Boolean = cart.contains(product)
 
     companion object {
         private const val CART_TAG = "CART_TAG"

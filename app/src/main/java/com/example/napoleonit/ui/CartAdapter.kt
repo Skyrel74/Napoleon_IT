@@ -13,15 +13,16 @@ import kotlinx.android.synthetic.main.cart_item.*
 
 class CartAdapter(
     private val onDeleteClick: (Product) -> Unit
-) : ListAdapter<Product, CartAdapter.ViewHolder>(object : DiffUtil.ItemCallback<Product>() {
-    override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
-        return oldItem.name == newItem.name
-    }
+) : ListAdapter<Product, CartAdapter.ViewHolder>(
+    object : DiffUtil.ItemCallback<Product>() {
+        override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
+            return oldItem.name == newItem.name
+        }
 
-    override fun areContentsTheSame(oldItem: Product, newItem: Product): Boolean {
-        return oldItem == newItem
-    }
-}) {
+        override fun areContentsTheSame(oldItem: Product, newItem: Product): Boolean {
+            return oldItem == newItem
+        }
+    }) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -37,8 +38,7 @@ class CartAdapter(
         holder.tvCartItemTitle.text = product.name
         holder.tvCartItemPrice.text = product.price.toString()
         holder.tvCartItemDiscount.text = product.discount.toString()
-        holder.tvCartItemDiscountPrice.text = product.calcDiscountPrice().toString()
+        holder.tvCartItemDiscountPrice.text = product.calcDiscountPrice()
         holder.deleteIv.setOnClickListener { onDeleteClick(product) }
     }
 }
-

@@ -7,11 +7,13 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.napoleonit.R
 import com.example.napoleonit.domain.Product
 import com.example.napoleonit.presentation.CatalogPresenter
-import com.example.napoleonit.presentation.CatalogView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_catalog.*
 import moxy.MvpAppCompatFragment
+import moxy.MvpView
 import moxy.ktx.moxyPresenter
+import moxy.viewstate.strategy.alias.AddToEndSingle
+import moxy.viewstate.strategy.alias.OneExecution
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -57,3 +59,14 @@ class CatalogFragment : MvpAppCompatFragment(R.layout.fragment_catalog), Catalog
     }
 }
 
+interface CatalogView : MvpView {
+
+    @AddToEndSingle
+    fun setProducts(products: List<Product>)
+
+    @OneExecution
+    fun showProductDetailed(product: Product)
+
+    @AddToEndSingle
+    fun showLoading(isShow: Boolean)
+}

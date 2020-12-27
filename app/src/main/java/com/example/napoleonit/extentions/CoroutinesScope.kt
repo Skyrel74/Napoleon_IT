@@ -8,7 +8,7 @@ fun CoroutineScope.launchWithErrorHandler(
     block: suspend () -> Unit,
     onError: (Throwable) -> Unit = { _ -> }
 ) {
-    launch(CoroutineExceptionHandler { context, throwable ->
+    launch(CoroutineExceptionHandler { _, throwable ->
         onError(throwable)
     }) {
         block()

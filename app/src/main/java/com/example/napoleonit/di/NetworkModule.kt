@@ -32,4 +32,3 @@ class NetworkModule {
         .build()
         .create()
 }
-

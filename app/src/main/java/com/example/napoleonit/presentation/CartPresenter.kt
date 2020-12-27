@@ -2,11 +2,9 @@ package com.example.napoleonit.presentation
 
 import com.example.napoleonit.data.CartDao
 import com.example.napoleonit.domain.Product
+import com.example.napoleonit.ui.CartView
 import moxy.MvpPresenter
-import moxy.MvpView
-import moxy.viewstate.strategy.alias.AddToEndSingle
 import javax.inject.Inject
-
 
 class CartPresenter @Inject constructor(private val cartDao: CartDao)
     : MvpPresenter<CartView>() {
@@ -15,7 +13,7 @@ class CartPresenter @Inject constructor(private val cartDao: CartDao)
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-        val cart = cartDao.getAllFromCart()
+        cart = cartDao.getAllFromCart()
         viewState.setCart(cart)
     }
 
@@ -24,10 +22,4 @@ class CartPresenter @Inject constructor(private val cartDao: CartDao)
         cartDao.deleteFromCart(product)
         viewState.setCart(cart)
     }
-}
-
-interface CartView : MvpView {
-
-    @AddToEndSingle
-    fun setCart(cart: List<Product>)
 }

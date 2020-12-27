@@ -67,5 +67,4 @@
                 android:contentDescription="@string/cart_delete_content_description"/>
         </TableRow>
     </TableLayout>
-
 </LinearLayout>

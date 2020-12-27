@@ -6,11 +6,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.napoleonit.R
 import com.example.napoleonit.domain.Product
 import com.example.napoleonit.presentation.CartPresenter
-import com.example.napoleonit.presentation.CartView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_cart.*
 import moxy.MvpAppCompatFragment
+import moxy.MvpView
 import moxy.ktx.moxyPresenter
+import moxy.viewstate.strategy.alias.AddToEndSingle
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -34,12 +35,18 @@ class CartFragment : MvpAppCompatFragment(R.layout.fragment_cart), CartView {
         }
     }
 
+    override fun setCart(cart: List<Product>) {
+        cartAdapter?.submitList(cart)
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         cartAdapter = null
     }
+}
 
-    override fun setCart(cart: List<Product>) {
-        cartAdapter?.submitList(cart)
-    }
+interface CartView : MvpView {
+
+    @AddToEndSingle
+    fun setCart(cart: List<Product>)
 }
