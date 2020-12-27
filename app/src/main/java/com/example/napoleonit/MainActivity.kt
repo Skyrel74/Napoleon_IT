@@ -60,9 +60,15 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
 interface MainView : MvpView {
 
+    /**
+     * Функция установки начального фрагмента
+     */
     @AddToEndSingle
     fun setStartupFragment(savedInstanceState: Bundle?)
 
+    /**
+     * Функция установки навигации
+     */
     @AddToEndSingle
     fun setNavigation()
 }

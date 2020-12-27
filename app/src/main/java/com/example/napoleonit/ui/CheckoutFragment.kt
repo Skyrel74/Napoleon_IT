@@ -73,21 +73,39 @@ class CheckoutFragment : MvpAppCompatFragment(R.layout.fragment_checkout), Check
 
 interface CheckoutView : MvpView {
 
+    /**
+     * Функция показа ошибки ввода в поле имени
+     */
     @Skip
     fun showNameError()
 
+    /**
+     * Функция показа ошибки ввода в поле фамилии
+     */
     @Skip
     fun showSurnameError()
 
+    /**
+     * Функция показа ошибки ввода в поле телефона
+     */
     @Skip
     fun showPhoneError()
 
+    /**
+     * Функция показа ошибки пустой корзины
+     */
+    @Skip
+    fun showEmptyCartError()
+
+    /**
+     * Функция показа успешного выполнения заказа
+     */
     @Skip
     fun showSuccessfulOrder()
 
+    /**
+     * Функция показа ошибки создания заказа
+     */
     @Skip
     fun showOrderError()
-
-    @Skip
-    fun showEmptyCartError()
 }

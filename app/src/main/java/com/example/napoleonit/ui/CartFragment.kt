@@ -47,6 +47,9 @@ class CartFragment : MvpAppCompatFragment(R.layout.fragment_cart), CartView {
 
 interface CartView : MvpView {
 
+    /**
+     * Функция установки списка продуктов в корзине [cart]
+     */
     @AddToEndSingle
     fun setCart(cart: List<Product>)
 }

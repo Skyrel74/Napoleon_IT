@@ -10,9 +10,15 @@ import retrofit2.http.POST
 
 interface MainApi {
 
+    /**
+     * Функция возвращает @return все продукты из удалённого сервера
+     */
     @GET(".json/")
     suspend fun getAllProducts(): ProductResponse
 
+    /**
+     * Функция отправляет заказ [order] на удалённый сервер
+     */
     @POST("orders/.json/")
     suspend fun sendOrder(@Body order: Order): Response<OrderResponse>?
 }

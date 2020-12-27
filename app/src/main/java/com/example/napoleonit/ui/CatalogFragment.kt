@@ -61,12 +61,21 @@ class CatalogFragment : MvpAppCompatFragment(R.layout.fragment_catalog), Catalog
 
 interface CatalogView : MvpView {
 
+    /**
+     * Функция установки продуктов [products] в список каталога
+     */
     @AddToEndSingle
     fun setProducts(products: List<Product>)
 
+    /**
+     * Функция показа детальной информации о продукте [product]
+     */
     @OneExecution
     fun showProductDetailed(product: Product)
 
+    /**
+     * Функция показа и скрытия индикатора загрузки по переменной [isShow]
+     */
     @AddToEndSingle
     fun showLoading(isShow: Boolean)
 }

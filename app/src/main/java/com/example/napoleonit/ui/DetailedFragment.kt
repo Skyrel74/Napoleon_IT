@@ -69,9 +69,15 @@ class DetailedFragment : MvpAppCompatFragment(R.layout.fragment_detailed), Detai
 
 interface DetailedView : MvpView {
 
+    /**
+     * Функция установки полей продукта [product]
+     */
     @AddToEndSingle
     fun setProduct(product: Product)
 
+    /**
+     * Функция изменения текста кноки по значению переменной [inCart]
+     */
     @AddToEndSingle
     fun setIsInCart(inCart: Boolean)
 }
