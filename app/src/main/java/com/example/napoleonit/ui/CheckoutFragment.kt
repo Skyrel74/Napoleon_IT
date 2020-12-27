@@ -51,6 +51,9 @@ class CheckoutFragment : MvpAppCompatFragment(R.layout.fragment_checkout), Check
     override fun showSuccessfulOrder() =
         Toast.makeText(requireContext(), "Покупка успешна", Toast.LENGTH_LONG).show()
 
+    override fun showOrderError() =
+        showErrorToast("Не получилось создать заказ")
+
     override fun showNameError() =
         showErrorToast("Имя должно содержать от 2 до 15 символов")
 
@@ -59,6 +62,10 @@ class CheckoutFragment : MvpAppCompatFragment(R.layout.fragment_checkout), Check
 
     override fun showPhoneError() =
         showErrorToast("Номер должен начинаться с 8 или +7 и содержать 11 цифр")
+
+    override fun showEmptyCartError() {
+        showErrorToast("Корзина пуста")
+    }
 
     private fun showErrorToast(errMsg: String) =
         Toast.makeText(requireContext(), "Ошибка: $errMsg", Toast.LENGTH_LONG).show()
@@ -77,4 +84,10 @@ interface CheckoutView : MvpView {
 
     @Skip
     fun showSuccessfulOrder()
+
+    @Skip
+    fun showOrderError()
+
+    @Skip
+    fun showEmptyCartError()
 }

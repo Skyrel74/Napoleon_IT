@@ -1,14 +1,17 @@
 package com.example.napoleonit.presentation
 
 import com.example.napoleonit.data.CartDao
-import com.example.napoleonit.domain.Order
+import com.example.napoleonit.domain.SendOrderUseCase
+import com.example.napoleonit.extentions.launchWithErrorHandler
 import com.example.napoleonit.ui.CheckoutView
 import com.example.napoleonit.ui.Type
 import moxy.MvpPresenter
+import moxy.presenterScope
 import javax.inject.Inject
 
 class CheckoutPresenter @Inject constructor(
-    private val cartDao: CartDao
+    private val cartDao: CartDao,
+    private val sendOrderUseCase: SendOrderUseCase
 ) : MvpPresenter<CheckoutView>() {
 
     private var selectedType: Type = Type.CASH
@@ -22,6 +25,7 @@ class CheckoutPresenter @Inject constructor(
             !isNameCorrect(name) -> viewState.showNameError()
             !isSurnameCorrect(surname) -> viewState.showSurnameError()
             !isPhoneCorrect(phone) -> viewState.showPhoneError()
+            cartDao.getAllFromCart().isEmpty() -> viewState.showEmptyCartError()
             else -> {
                 makeOrder(name, surname, phone, selectedType)
                 viewState.showSuccessfulOrder()
@@ -30,15 +34,23 @@ class CheckoutPresenter @Inject constructor(
     }
 
     private fun makeOrder(name: String, surname: String, phone: String, selectedType: Type) {
-        val newOrder = Order(
-            name,
-            surname,
-            phone,
-            selectedType,
-            cartDao.getAllFromCart()
-        )
-        // Сделать PUT запрос на Firebase
-        cartDao.clearCart()
+        presenterScope.launchWithErrorHandler(
+            block = {
+                val newOrder = Order(
+                    name,
+                    surname,
+                    phone,
+                    selectedType,
+                    cartDao.getAllFromCart()
+                )
+                if (sendOrderUseCase(newOrder) != null) {
+                    cartDao.clearCart()
+                    viewState.showSuccessfulOrder()
+                } else
+                    viewState.showOrderError()
+            }, onError = {
+                viewState.showOrderError()
+            })
     }
 
     private fun isNameCorrect(name: String): Boolean = name.length in 2..15
