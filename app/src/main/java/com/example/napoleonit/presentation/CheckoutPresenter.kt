@@ -34,6 +34,7 @@ class CheckoutPresenter @Inject constructor(
     }
 
     private fun makeOrder(name: String, surname: String, phone: String, selectedType: Type) {
+        viewState.showLoading(true)
         presenterScope.launchWithErrorHandler(
             block = {
                 val newOrder = Order(
@@ -45,10 +46,14 @@ class CheckoutPresenter @Inject constructor(
                 )
                 if (sendOrderUseCase(newOrder) != null) {
                     cartDao.clearCart()
+                    viewState.showLoading(false)
                     viewState.showSuccessfulOrder()
-                } else
+                } else {
+                    viewState.showLoading(false)
                     viewState.showOrderError()
+                }
             }, onError = {
+                viewState.showLoading(false)
                 viewState.showOrderError()
             })
     }
